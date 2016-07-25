@@ -4,42 +4,35 @@ using UnityEngine.UI;
 
 public class Grid : MonoBehaviour 
 {
-	public const int EMPTY = 0;
-	public const int CIRCLE = 1;
-	public const int SQUARE = 2;
+	private const int EMPTY = 0;
+	private const int PLAYER_PIECE = 1;
+	private const int COMPUTER_PIECE = 2;
 
-	public bool isPlayerTurn = true;
+	public static Grid instance = null;    
 
 	public Sprite playerPiece;
 	public Sprite computerPiece;
 
-	public int[] spaces = new int[9];
-	public Button[] spacesImages = new Button[9];
+	public bool isPlayerTurn = true;
 
-	void Start()
+	public int[] spaces = new int[9];
+
+	void Awake()
 	{
-		spacesImages = transform.Find("Spaces").GetComponentsInChildren<Button>();
+		if(instance == null)
+			instance = this;
+		else if (instance != this)
+			Destroy(gameObject);    
 	}
 		
-	public void SetSpacePiece(Button piece) 
+	public void SetSpacePiece(int spacePosition) 
 	{
-		Debug.Log(piece.image.sprite);
+		spaces[spacePosition] = isPlayerTurn ? PLAYER_PIECE : COMPUTER_PIECE;
+		PassTurn();
+	}
 
-		if(isPlayerTurn)
-		{
-			piece.image.sprite = playerPiece;
-			var color = piece.image.color;
-			color.a = 1;
-			piece.image.color = color;
-			piece.enabled = false;
-		} 
-		else
-		{
-			piece.image.sprite = computerPiece;
-			var color = piece.image.color;
-			color.a = 1;
-			piece.image.color = color;
-			piece.enabled = false;
-		}
+	private void PassTurn()
+	{
+		isPlayerTurn = !isPlayerTurn;
 	}
 }
