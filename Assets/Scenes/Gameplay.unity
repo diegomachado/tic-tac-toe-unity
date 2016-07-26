@@ -146,7 +146,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1001 &127355355
 Prefab:
   m_ObjectHideFlags: 0
@@ -291,8 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
-  gridPosition: 0
+  gridPosition: 5
 --- !u!1 &178838227
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,8 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
-  gridPosition: 0
+  gridPosition: 8
 --- !u!1 &486300060
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,7 +983,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
   gridPosition: 0
 --- !u!1 &808997071
 GameObject:
@@ -1157,7 +1154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff22750bb75b43c294cb2cdd2981c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerTurn: 1
   playerPiece: {fileID: 21300000, guid: 9bbfa28dcaf0d40568d1a72229fbd55a, type: 3}
   computerPiece: {fileID: 21300000, guid: 8663663d3babb4aa8af068d1a332da31, type: 3}
   spaces: 000000000000000000000000000000000000000000000000000000000000000000000000
@@ -1176,8 +1172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
-  gridPosition: 0
+  gridPosition: 2
 --- !u!1 &968188515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,6 +1184,7 @@ GameObject:
   - 223: {fileID: 968188518}
   - 114: {fileID: 968188517}
   - 114: {fileID: 968188516}
+  - 114: {fileID: 968188520}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1267,12 +1263,27 @@ RectTransform:
   - {fileID: 816871506}
   - {fileID: 654125878}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &968188520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 968188515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fabfdf2f297334b16ac1196ccce7f9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScoreText: {fileID: 808997073}
+  tiesScoreText: {fileID: 1270013198}
+  computerScoreText: {fileID: 1326587669}
+  statusText: {fileID: 1984647928}
 --- !u!1001 &1053547841
 Prefab:
   m_ObjectHideFlags: 0
@@ -1417,8 +1428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
-  gridPosition: 0
+  gridPosition: 6
 --- !u!1 &1193075715 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 150418, guid: 9f76cd54fef6447e9b9ec4c3fdb69274, type: 2}
@@ -1434,8 +1444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
-  gridPosition: 0
+  gridPosition: 7
 --- !u!1 &1252411721 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 150418, guid: 9f76cd54fef6447e9b9ec4c3fdb69274, type: 2}
@@ -1451,8 +1460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
-  gridPosition: 0
+  gridPosition: 4
 --- !u!1 &1270013196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,8 +1978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
-  gridPosition: 0
+  gridPosition: 1
 --- !u!1001 &1732845779
 Prefab:
   m_ObjectHideFlags: 0
@@ -2230,6 +2237,51 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1733730725}
   m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!1 &1747134277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1747134279}
+  - 114: {fileID: 1747134278}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1747134278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1747134277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c36540025e948bf81fd6164c847252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerTurn: 1
+  turnCount: 0
+  playerScore: 0
+  tiesScore: 0
+  computerScore: 0
+--- !u!4 &1747134279
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1747134277}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1115, y: -0.3716398, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
 --- !u!1 &1782218978 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 150418, guid: 9f76cd54fef6447e9b9ec4c3fdb69274, type: 2}
@@ -2245,8 +2297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
-  gridPosition: 0
+  gridPosition: 3
 --- !u!1 &1984647923
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,8 +2309,9 @@ GameObject:
   - 222: {fileID: 1984647926}
   - 114: {fileID: 1984647925}
   - 114: {fileID: 1984647927}
+  - 114: {fileID: 1984647928}
   m_Layer: 5
-  m_Name: Turn Text
+  m_Name: Status Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2315,7 +2367,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: PLAYER'S TURN
+  m_Text: TURN TEXT
 --- !u!222 &1984647926
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2336,6 +2388,22 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.238}
   m_EffectDistance: {x: 3, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!114 &1984647928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1984647923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49cd25ff4ff2c4330ad4e0ae06394652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTurnText: Player's Turn
+  computerTurnText: Computer's Turn
+  playerWinText: Player Wins!
+  tieText: It's a Tie!
+  computerWinText: Computer Wins :(
 --- !u!1001 &2050003132
 Prefab:
   m_ObjectHideFlags: 0

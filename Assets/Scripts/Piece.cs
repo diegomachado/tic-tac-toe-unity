@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Piece : MonoBehaviour 
 {
 	private Image image;
-	public Button button;
+	private Button button;
 	public int gridPosition;
 
 	void Start () 
@@ -18,8 +18,9 @@ public class Piece : MonoBehaviour
 	public void SetPiece() 
 	{
 		var grid = Grid.instance;
+		var gameManager = GameManager.instance;
 
-		image.sprite = grid.isPlayerTurn ? grid.playerPiece : grid.computerPiece;
+		image.sprite = gameManager.isPlayerTurn ? grid.playerPiece : grid.computerPiece;
 		var color = image.color;
 		color.a = 1;
 		image.color = color;
