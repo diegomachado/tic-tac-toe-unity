@@ -7,7 +7,7 @@ public class HUD : MonoBehaviour
 	public static HUD instance = null;    
 
 	public Text playerScoreText;
-	public Text tiesScoreText;
+	public Text tieScoreText;
 	public Text computerScoreText;
 
 	public StatusText statusText;
@@ -22,26 +22,34 @@ public class HUD : MonoBehaviour
 
 	void Start()
 	{
-		playerScoreText.text = tiesScoreText.text = computerScoreText.text = 0.ToString();
+		playerScoreText.text = tieScoreText.text = computerScoreText.text = 0.ToString();
 	}
 
 	public void PassTurn()
 	{
-		statusText.PassTurn();
+		statusText.SetTurnText();
 	}
 
 	public void PlayerWin()
 	{
+		playerScoreText.text = GameManager.instance.playerScore.ToString();
 		statusText.PlayerWin();
-	}
-
-	public void ComputerWin()
-	{
-		statusText.ComputerWin();
 	}
 
 	public void Tie()
 	{
+		tieScoreText.text = GameManager.instance.tieScore.ToString();
 		statusText.Tie();
+	}
+
+	public void ComputerWin()
+	{
+		computerScoreText.text = GameManager.instance.computerScore.ToString();
+		statusText.ComputerWin();
+	}
+
+	public void UpdateTurnText()
+	{
+		statusText.SetTurnText();
 	}
 }

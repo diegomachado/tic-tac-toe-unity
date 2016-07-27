@@ -12,6 +12,7 @@ public class Grid : MonoBehaviour
 
 	public Sprite playerPiece;
 	public Sprite computerPiece;
+	public Piece[] pieces;
 
 	public int[] spaces = new int[9];
 
@@ -22,33 +23,37 @@ public class Grid : MonoBehaviour
 		else if (instance != this)
 			Destroy(gameObject);    
 	}
-		
-	public void SetSpacePiece(int spacePosition) 
+
+	void Start()
 	{
+		pieces = transform.Find("Spaces").GetComponentsInChildren<Piece>();
+	}
+
+	public void MakeMove(Piece piece)
+	{
+		SetPieceSpace(piece.gridPosition);
+
 		var gameManager = GameManager.instance;
 
-		spaces[spacePosition] = gameManager.isPlayerTurn ? PLAYER_PIECE : COMPUTER_PIECE;
-
-		var hasWinner = false;
-
-		if(gameManager.turnCount >= 4)
-			hasWinner = CheckForWinner();
-
-		if(hasWinner)
+		if(gameManager.HasMinTurnsToCheckForWinner() && CheckForWinner())
 		{
 			gameManager.Win();
-			DisableAllSpaces();
+			DisableAllPieces();
 		}
 		else
 		{
 			gameManager.PassTurn();
 		}
 	}
-
+		
+	public void SetPieceSpace(int piecePosition) 
+	{
+		spaces[piecePosition] = GameManager.instance.isPlayerTurn ? PLAYER_PIECE : COMPUTER_PIECE;
+	}
+		
 	private bool CheckForWinner()
 	{
-		var gameManager = GameManager.instance;
-		return gameManager.isPlayerTurn ? CheckPlayerWin() : CheckComputerWin();
+		return GameManager.instance.isPlayerTurn ? CheckPlayerWin() : CheckComputerWin();
 	}
 
 	private bool CheckPlayerWin()
@@ -66,7 +71,8 @@ public class Grid : MonoBehaviour
 		var rowWin = CheckRowWin(piece);
 		var columnWin = CheckColumnWin(piece);
 		var diagonalWin = CheckDiagonalWin(piece);
-		return (rowWin || columnWin || diagonalWin);
+
+		return rowWin || columnWin || diagonalWin;
 	}
 
 	private bool CheckRowWin(int piece)
@@ -93,19 +99,26 @@ public class Grid : MonoBehaviour
 
 	private bool CheckDiagonalWin(int piece)
 	{
-		if(spaces[0] == spaces[4] && spaces[4] == spaces[8] && spaces[8] == piece)
-			return true;
-		else if(spaces[2] == spaces[4] && spaces[4] == spaces[6] && spaces[6] == piece)
-			return true;
+		var firstDiagonal = spaces[0] == spaces[4] && spaces[4] == spaces[8] && spaces[8] == piece;
+		var secondDiagonal = spaces[2] == spaces[4] && spaces[4] == spaces[6] && spaces[6] == piece;
 
-		return false;
+		return firstDiagonal || secondDiagonal;
 	}
 
-	private void DisableAllSpaces()
+	private void DisableAllPieces()
 	{
-		var spaceButtons = transform.Find("Spaces").GetComponentsInChildren<Button>();
+		foreach(var piece in pieces)
+			piece.Disable();
+	}
+		
+	public void RemoveAllPieces()
+	{
+		spaces = new int[9];
 
-		foreach(var button in spaceButtons)
-			button.enabled = false;
+		foreach(var piece in pieces)
+		{
+			piece.Enable();
+			piece.RemoveImage();
+		}
 	}
 }

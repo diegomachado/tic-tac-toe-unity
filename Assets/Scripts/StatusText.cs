@@ -16,10 +16,10 @@ public class StatusText : MonoBehaviour
 	void Start() 
 	{
 		text = GetComponent<Text>();
-		PassTurn();
+		SetTurnText();
 	}
 
-	public void PassTurn()
+	public void SetTurnText()
 	{
 		text.text = GameManager.instance.isPlayerTurn ? playerTurnText : computerTurnText;
 	}

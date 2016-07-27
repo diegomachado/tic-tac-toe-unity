@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Piece : MonoBehaviour 
 {
 	private Image image;
-	private Button button;
+	public Button button;
 	public int gridPosition;
 
 	void Start () 
@@ -17,6 +17,13 @@ public class Piece : MonoBehaviour
 
 	public void SetPiece() 
 	{
+		SetImage();
+		Grid.instance.MakeMove(this);
+		button.enabled = false;
+	}
+
+	void SetImage()
+	{
 		var grid = Grid.instance;
 		var gameManager = GameManager.instance;
 
@@ -24,8 +31,23 @@ public class Piece : MonoBehaviour
 		var color = image.color;
 		color.a = 1;
 		image.color = color;
-		button.enabled = false;
+	}
 
-		grid.SetSpacePiece(gridPosition);
+	public void RemoveImage()
+	{
+		image.sprite = null;
+		var color = image.color;
+		color.a = 0;
+		image.color = color;
+	}
+
+	public void Enable()
+	{
+		button.enabled = true;
+	}
+
+	public void Disable()
+	{
+		button.enabled = false;
 	}
 }
