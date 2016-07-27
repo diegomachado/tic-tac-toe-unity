@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
+using System.Collections;
 
 public class HUD : MonoBehaviour 
 {
@@ -11,6 +11,7 @@ public class HUD : MonoBehaviour
 	public Text computerScoreText;
 
 	public StatusText statusText;
+	public Button restartButton;
 
 	void Awake()
 	{
@@ -23,9 +24,26 @@ public class HUD : MonoBehaviour
 	void Start()
 	{
 		playerScoreText.text = tieScoreText.text = computerScoreText.text = 0.ToString();
+		DisableRestartButton();
 	}
 
-	public void PassTurn()
+	public void Restart()
+	{
+		UpdateTurnText();
+		DisableRestartButton();
+	}
+
+	public void DisableRestartButton()
+	{
+		restartButton.GetComponent<ButtonHelper>().DisableHidingImage();
+	}
+
+	public void EnableRestartButton()
+	{
+		restartButton.GetComponent<ButtonHelper>().EnableShowingImage();
+	}
+		
+	public void UpdateTurnText()
 	{
 		statusText.SetTurnText();
 	}
@@ -46,10 +64,5 @@ public class HUD : MonoBehaviour
 	{
 		computerScoreText.text = GameManager.instance.computerScore.ToString();
 		statusText.ComputerWin();
-	}
-
-	public void UpdateTurnText()
-	{
-		statusText.SetTurnText();
 	}
 }

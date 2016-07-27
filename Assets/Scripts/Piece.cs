@@ -1,53 +1,57 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
+using System.Collections;
 
 public class Piece : MonoBehaviour 
 {
-	private Image image;
-	public Button button;
+	private Image _image;
+	private Button _button;
+	private ButtonHelper _buttonHelper;
 	public int gridPosition;
 
 	void Start () 
 	{
-		image = GetComponent<Image>();
-		button = GetComponent<Button>();
-		button.onClick.AddListener(SetPiece);
+		_image = GetComponent<Image>();
+		_button = GetComponent<Button>();
+		_buttonHelper = GetComponent<ButtonHelper>();
+
+		_button.onClick.AddListener(PlayerSetPiece);
+	}
+
+	public void PlayerSetPiece()
+	{
+		SetPiece();
+		GameManager.instance.MakeMove(this);
 	}
 
 	public void SetPiece() 
 	{
 		SetImage();
-		Grid.instance.MakeMove(this);
-		button.enabled = false;
+		Disable();
 	}
-
+		
 	void SetImage()
 	{
 		var grid = Grid.instance;
 		var gameManager = GameManager.instance;
 
-		image.sprite = gameManager.isPlayerTurn ? grid.playerPiece : grid.computerPiece;
-		var color = image.color;
-		color.a = 1;
-		image.color = color;
+		_image.sprite = gameManager.isPlayerTurn ? grid.playerPiece : grid.computerPiece;
+		_buttonHelper.SetImageAlpha(1);
 	}
 
 	public void RemoveImage()
 	{
-		image.sprite = null;
-		var color = image.color;
-		color.a = 0;
-		image.color = color;
+		_image.sprite = null;
+		_buttonHelper.SetImageAlpha(0);
 	}
 
 	public void Enable()
 	{
-		button.enabled = true;
+		_button.enabled = true;
 	}
 
 	public void Disable()
 	{
-		button.enabled = false;
+		_button.enabled = false;
 	}
 }

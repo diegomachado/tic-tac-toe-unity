@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class Grid : MonoBehaviour 
 {
@@ -28,43 +28,20 @@ public class Grid : MonoBehaviour
 	{
 		pieces = transform.Find("Spaces").GetComponentsInChildren<Piece>();
 	}
-
-	public void MakeMove(Piece piece)
-	{
-		SetPieceSpace(piece.gridPosition);
-
-		var gameManager = GameManager.instance;
-
-		if(gameManager.HasMinTurnsToCheckForWinner() && CheckForWinner())
-		{
-			gameManager.Win();
-			DisableAllPieces();
-		}
-		else
-		{
-			gameManager.PassTurn();
-		}
-	}
 		
-	public void SetPieceSpace(int piecePosition) 
+	public void SetPiece(int piecePosition) 
 	{
 		spaces[piecePosition] = GameManager.instance.isPlayerTurn ? PLAYER_PIECE : COMPUTER_PIECE;
 	}
 		
-	private bool CheckForWinner()
+	public bool CheckForWinner()
 	{
 		return GameManager.instance.isPlayerTurn ? CheckPlayerWin() : CheckComputerWin();
 	}
 
-	private bool CheckPlayerWin()
-	{
-		return CheckWin(PLAYER_PIECE);
-	}
+	private bool CheckPlayerWin() { return CheckWin(PLAYER_PIECE); }
 
-	private bool CheckComputerWin()
-	{
-		return CheckWin(COMPUTER_PIECE);
-	}
+	private bool CheckComputerWin()	{ return CheckWin(COMPUTER_PIECE); }
 
 	private bool CheckWin(int piece)
 	{
@@ -105,7 +82,7 @@ public class Grid : MonoBehaviour
 		return firstDiagonal || secondDiagonal;
 	}
 
-	private void DisableAllPieces()
+	public void DisableAllPieces()
 	{
 		foreach(var piece in pieces)
 			piece.Disable();
@@ -120,5 +97,18 @@ public class Grid : MonoBehaviour
 			piece.Enable();
 			piece.RemoveImage();
 		}
+	}
+
+	public Piece[] EmptyPieces()
+	{
+		var emptyPieces = new List<Piece>();
+
+		for (int i = 0; i < spaces.Length; ++i) 
+		{
+			if(spaces[i] == EMPTY)
+				emptyPieces.Add(pieces[i]);
+		}
+
+		return emptyPieces.ToArray();
 	}
 }
