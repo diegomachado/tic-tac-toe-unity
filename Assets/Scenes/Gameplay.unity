@@ -146,7 +146,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1001 &127355355
 Prefab:
   m_ObjectHideFlags: 0
@@ -299,8 +299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
-  _image: {fileID: 0}
 --- !u!114 &178006705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,9 +310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _image: {fileID: 0}
-  _button: {fileID: 0}
-  _buttonHelper: {fileID: 0}
   gridPosition: 5
 --- !u!1 &178838227
 GameObject:
@@ -469,6 +464,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1689125534}
+        m_MethodName: PlayRandomButtonClickSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &302853168
@@ -515,8 +521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
-  _image: {fileID: 0}
 --- !u!1 &351198079
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,8 +593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
-  _image: {fileID: 0}
 --- !u!114 &465266751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,9 +604,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _image: {fileID: 0}
-  _button: {fileID: 0}
-  _buttonHelper: {fileID: 0}
   gridPosition: 8
 --- !u!1 &486300060
 GameObject:
@@ -1174,8 +1173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
-  _image: {fileID: 0}
 --- !u!114 &779230002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,9 +1184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _image: {fileID: 0}
-  _button: {fileID: 0}
-  _buttonHelper: {fileID: 0}
   gridPosition: 0
 --- !u!1 &808997071
 GameObject:
@@ -1361,10 +1355,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09f1fb13b1664cd99d3d4f0bf463dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pieces: []
+  cells: 000000000000000000000000000000000000000000000000000000000000000000000000
   playerPiece: {fileID: 21300000, guid: 9bbfa28dcaf0d40568d1a72229fbd55a, type: 3}
   computerPiece: {fileID: 21300000, guid: 8663663d3babb4aa8af068d1a332da31, type: 3}
-  pieces: []
-  spaces: 000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &858116509 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 150418, guid: 9f76cd54fef6447e9b9ec4c3fdb69274, type: 2}
@@ -1380,8 +1374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
-  _image: {fileID: 0}
 --- !u!114 &858116512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1393,9 +1385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _image: {fileID: 0}
-  _button: {fileID: 0}
-  _buttonHelper: {fileID: 0}
   gridPosition: 2
 --- !u!1 &968188515
 GameObject:
@@ -1488,7 +1477,7 @@ RectTransform:
   - {fileID: 816871506}
   - {fileID: 654125878}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1662,8 +1651,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
-  _image: {fileID: 0}
 --- !u!114 &1091771061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1675,9 +1662,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _image: {fileID: 0}
-  _button: {fileID: 0}
-  _buttonHelper: {fileID: 0}
   gridPosition: 6
 --- !u!1 &1193075715 stripped
 GameObject:
@@ -1694,8 +1678,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
-  _image: {fileID: 0}
 --- !u!114 &1193075718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1707,9 +1689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _image: {fileID: 0}
-  _button: {fileID: 0}
-  _buttonHelper: {fileID: 0}
   gridPosition: 7
 --- !u!1 &1252411721 stripped
 GameObject:
@@ -1726,8 +1705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
-  _image: {fileID: 0}
 --- !u!114 &1252411724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1739,9 +1716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _image: {fileID: 0}
-  _button: {fileID: 0}
-  _buttonHelper: {fileID: 0}
   gridPosition: 4
 --- !u!1 &1270013196
 GameObject:
@@ -2276,8 +2250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
-  _image: {fileID: 0}
 --- !u!114 &1485259792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2289,10 +2261,207 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _image: {fileID: 0}
-  _button: {fileID: 0}
-  _buttonHelper: {fileID: 0}
   gridPosition: 1
+--- !u!1 &1689125531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1689125533}
+  - 82: {fileID: 1689125532}
+  - 82: {fileID: 1689125535}
+  - 114: {fileID: 1689125534}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1689125532
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1689125531}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 18173b58d6bd14f9593f93f8327df6a8, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &1689125533
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1689125531}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.15598965, y: 0.42111158, z: 91.862335}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+--- !u!114 &1689125534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1689125531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa8c28110c7947d7ae4631f374263d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setPieceSFXs:
+  - {fileID: 8300000, guid: be385a212ea2a45fa97396cab47a3932, type: 3}
+  - {fileID: 8300000, guid: 1fa9088b8acdf496e9f7cf936883d3cd, type: 3}
+  - {fileID: 8300000, guid: 865e258c0a5b34a64a5486b17bf248a3, type: 3}
+  buttonClickSFXs:
+  - {fileID: 8300000, guid: b2da19f4242ef46519de1bb69a2540ff, type: 3}
+  - {fileID: 8300000, guid: 9d62b3a9a57734ffba4a40113b8ff4ae, type: 3}
+  - {fileID: 8300000, guid: 55b98b5fa314c4873bb087191f9cd1ef, type: 3}
+  matchEndSFX: {fileID: 0}
+  sfxSource: {fileID: 1689125535}
+--- !u!82 &1689125535
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1689125531}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1001 &1732845779
 Prefab:
   m_ObjectHideFlags: 0
@@ -2600,9 +2769,6 @@ MonoBehaviour:
   playerScore: 0
   tieScore: 0
   computerScore: 0
-  _hud: {fileID: 0}
-  _grid: {fileID: 0}
-  _ai: {fileID: 0}
 --- !u!4 &1747134279
 Transform:
   m_ObjectHideFlags: 0
@@ -2615,7 +2781,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &1747134280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2627,7 +2793,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315e0889da0a54dd5a5e699c55c88c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _grid: {fileID: 0}
 --- !u!1 &1782218978 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 150418, guid: 9f76cd54fef6447e9b9ec4c3fdb69274, type: 2}
@@ -2643,8 +2808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
-  _image: {fileID: 0}
 --- !u!114 &1782218981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2656,9 +2819,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _image: {fileID: 0}
-  _button: {fileID: 0}
-  _buttonHelper: {fileID: 0}
   gridPosition: 3
 --- !u!1 &1984647923
 GameObject:
@@ -2761,12 +2921,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49cd25ff4ff2c4330ad4e0ae06394652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTurnText: 506c617965722773205475726e
-  computerTurnText: 436f6d70757465722773205475726e
-  playerWinText: 506c617965722057696e7321
-  tieText: 4974277320612054696521
-  computerWinText: 436f6d70757465722057696e73203a28
-  text: {fileID: 0}
+  playerTurnText: Player's Turn
+  computerTurnText: Computer's Turn
+  playerWinText: Player Wins!
+  tieText: It's a Tie!
+  computerWinText: Computer Wins :(
 --- !u!1001 &2050003132
 Prefab:
   m_ObjectHideFlags: 0

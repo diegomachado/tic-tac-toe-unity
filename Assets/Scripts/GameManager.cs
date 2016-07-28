@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
 	public void Move(Piece piece)
 	{
 		_grid.SetPiece(piece.gridPosition);
+		SoundManager.instance.PlayRandomSetPieceSFX();
 
 		if(CheckForWinner())
 		{
@@ -68,7 +69,7 @@ public class GameManager : MonoBehaviour
 			ToggleTurnPlayer();
 
 			if(!isPlayerTurn)
-				AIMove();
+				StartCoroutine(AIMove());
 		}
 
 	}
@@ -131,8 +132,9 @@ public class GameManager : MonoBehaviour
 		_hud.UpdateTurnText();
 	}
 		
-	private void AIMove()
+	IEnumerator AIMove(float delayTime = 1f)
 	{
+		yield return new WaitForSeconds(delayTime);
 		Piece aiPiece = _ai.MovePiece();
 		Move(aiPiece);
 	}
@@ -144,6 +146,6 @@ public class GameManager : MonoBehaviour
 		_grid.RemoveAllPieces();
 
 		if(!isPlayerTurn)
-			AIMove();
+			StartCoroutine(AIMove(.4f));
 	}
 }

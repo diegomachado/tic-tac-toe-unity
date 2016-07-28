@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using DG.Tweening;
 
 public class Piece : MonoBehaviour 
 {
@@ -37,6 +38,8 @@ public class Piece : MonoBehaviour
 
 		_image.sprite = gameManager.isPlayerTurn ? grid.playerPiece : grid.computerPiece;
 		_buttonHelper.SetImageAlpha(1);
+
+		transform.DOPunchScale(new Vector3(.3f, .3f), .8f);
 	}
 
 	public void RemoveImage()

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using DG.Tweening;
 
 public class HUD : MonoBehaviour 
 {
@@ -51,18 +52,21 @@ public class HUD : MonoBehaviour
 	public void PlayerWin()
 	{
 		playerScoreText.text = GameManager.instance.playerScore.ToString();
+		playerScoreText.transform.DOPunchScale(new Vector3(.5f, .5f), .8f);
 		statusText.PlayerWin();
 	}
 
 	public void Tie()
 	{
 		tieScoreText.text = GameManager.instance.tieScore.ToString();
+		tieScoreText.transform.DOPunchScale(new Vector3(.5f, .5f), .8f);
 		statusText.Tie();
 	}
 
 	public void ComputerWin()
 	{
 		computerScoreText.text = GameManager.instance.computerScore.ToString();
+		computerScoreText.transform.DOPunchScale(new Vector3(.5f, .5f), .8f);
 		statusText.ComputerWin();
 	}
 }
