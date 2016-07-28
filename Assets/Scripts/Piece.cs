@@ -21,8 +21,11 @@ public class Piece : MonoBehaviour
 
 	public void PlayerSetPiece()
 	{
-		SetPiece();
-		GameManager.instance.PlayerMove(this);
+		if(GameManager.instance.isPlayerTurn)
+		{
+			SetPiece();
+			GameManager.instance.PlayerMove(this);
+		}
 	}
 
 	public void SetPiece() 

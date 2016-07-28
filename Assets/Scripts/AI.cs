@@ -1,8 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum Difficulty
+{
+	Noob,
+	Meh,
+	Skilled,
+	NotWinning
+};
+
 public class AI : MonoBehaviour 
 {
+	static public Difficulty difficultyLevel = Difficulty.Noob;
+
 	private Board _grid;
 		
 	void Start()
@@ -12,15 +22,39 @@ public class AI : MonoBehaviour
 
 	public Piece MovePiece()
 	{
-		var movePiece = 
-			OffensePiece() ?? 
-			DefensePiece() ?? 
-			CenterPiece() ?? 
-			OppositeCornerPiece() ?? 
-			CornerPiece() ?? 
-			RandomEmptyPiece();
-		
+		Piece movePiece;
+
+		movePiece = GetDifficultyPiece ();
+			
 		movePiece.SetPiece();
+		return movePiece;
+	}
+
+	private Piece GetDifficultyPiece()
+	{
+		Piece movePiece;
+
+		if (difficultyLevel == Difficulty.Noob) 
+		{
+			movePiece = RandomEmptyPiece ();
+		}
+		else if (difficultyLevel == Difficulty.Meh) 
+		{
+			movePiece = DefensePiece () ?? RandomEmptyPiece ();
+		}
+		else if (difficultyLevel == Difficulty.Skilled) 
+		{
+			movePiece = DefensePiece () ?? CenterPiece () ?? OppositeCornerPiece () ?? CornerPiece () ?? RandomEmptyPiece ();
+		}
+		else if (difficultyLevel == Difficulty.NotWinning) 
+		{
+			movePiece = OffensePiece () ?? DefensePiece () ?? CenterPiece () ?? OppositeCornerPiece () ?? CornerPiece () ?? RandomEmptyPiece ();
+		}
+		else 
+		{
+			movePiece = RandomEmptyPiece ();
+		}
+		
 		return movePiece;
 	}
 
@@ -41,25 +75,7 @@ public class AI : MonoBehaviour
 		
 		return null;
 	}
-
-	public Piece OppositeCornerPiece()
-	{
-		var cornersPositions = new int[] {0, 2, 6, 8};
-		var oppositeCornersPositions = new int[] {8, 6, 2, 0};
-		var spaces = _grid.cells;
-
-		for (int i = 0; i < cornersPositions.Length; ++i) 
-		{
-			var cornerSpace = spaces[cornersPositions[i]];
-			var oppositeCornerSpace = spaces[oppositeCornersPositions[i]];
-
-			if(cornerSpace == Board.PLAYER_PIECE && oppositeCornerSpace == Board.EMPTY)
-				return _grid.pieces[oppositeCornersPositions[i]];
-		}
-
-		return null;
-	}
-
+		
 	public Piece CornerPiece()
 	{
 		var cornersPositions = new int[] {0, 2, 6, 8};
@@ -68,6 +84,24 @@ public class AI : MonoBehaviour
 		{
 			if(_grid.cells[cornersPositions[i]] == Board.EMPTY)
 				return _grid.pieces[cornersPositions[i]];
+		}
+
+		return null;
+	}
+
+	public Piece OppositeCornerPiece()
+	{
+		var cornersPositions = new int[] {0, 2, 6, 8};
+		var oppositeCornersPositions = new int[] {8, 6, 2, 0};
+		var cells = _grid.cells;
+
+		for (int i = 0; i < cornersPositions.Length; ++i) 
+		{
+			var cornerCell = cells[cornersPositions[i]];
+			var oppositeCornerCell = cells[oppositeCornersPositions[i]];
+
+			if(cornerCell == Board.PLAYER_PIECE && oppositeCornerCell == Board.EMPTY)
+				return _grid.pieces[oppositeCornersPositions[i]];
 		}
 
 		return null;
@@ -89,15 +123,15 @@ public class AI : MonoBehaviour
 
 		for (int i = 0; i < winConfigs.GetLength(0); i++)
 		{
-			var space0 = _grid.cells[winConfigs[i, 0]];
-			var space1 = _grid.cells[winConfigs[i ,1]];
-			var space2 = _grid.cells[winConfigs[i, 2]];
+			var cell0 = _grid.cells[winConfigs[i, 0]];
+			var cell1 = _grid.cells[winConfigs[i ,1]];
+			var cell2 = _grid.cells[winConfigs[i, 2]];
 
-			if(space0 == Board.EMPTY && space1 == pieceType && space2 == pieceType) 
+			if(cell0 == Board.EMPTY && cell1 == pieceType && cell2 == pieceType) 
 				return _grid.pieces[winConfigs[i, 0]];
-			else if(space0 == pieceType && space1 == Board.EMPTY && space2 == pieceType) 
+			else if(cell0 == pieceType && cell1 == Board.EMPTY && cell2 == pieceType) 
 				return _grid.pieces[winConfigs[i, 1]];
-			else if(space0 == pieceType && space1 == pieceType && space2 == Board.EMPTY) 
+			else if(cell0 == pieceType && cell1 == pieceType && cell2 == Board.EMPTY) 
 				return _grid.pieces[winConfigs[i, 2]];
 		}
 

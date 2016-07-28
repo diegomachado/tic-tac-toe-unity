@@ -42,6 +42,7 @@ public class HUD : MonoBehaviour
 	public void EnableRestartButton()
 	{
 		restartButton.GetComponent<ButtonHelper>().EnableShowingImage();
+		restartButton.transform.DOPunchScale(new Vector3(.5f, .5f), .8f);
 	}
 		
 	public void UpdateTurnText()

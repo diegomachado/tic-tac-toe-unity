@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 	public int computerScore = 0;
 
 	private HUD _hud;
-	private Board _grid;
+	private Board _board;
 	private AI _ai;
 
 	void Awake()
@@ -31,14 +31,8 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		_hud = HUD.instance;
-		_grid = Board.instance;
+		_board = Board.instance;
 		_ai = GetComponent<AI>();
-	}
-
-	void Update()
-	{
-		if(Input.GetKeyDown(KeyCode.R))
-			SceneManager.LoadScene("Gameplay");
 	}
 
 	public void PlayerMove(Piece piece)
@@ -48,7 +42,7 @@ public class GameManager : MonoBehaviour
 
 	public void Move(Piece piece)
 	{
-		_grid.SetPiece(piece.gridPosition);
+		_board.SetPiece(piece.gridPosition);
 		SoundManager.instance.PlayRandomSetPieceSFX();
 
 		if(CheckForWinner())
@@ -77,7 +71,7 @@ public class GameManager : MonoBehaviour
 	private bool CheckForWinner()
 	{
 		var hasMinTurnsToCheckForWinner = (turnCount >= MIN_TURNS_TO_WIN);
-		return hasMinTurnsToCheckForWinner && _grid.CheckForWinner();
+		return hasMinTurnsToCheckForWinner && _board.CheckForWinner();
 	}
 
 	private void Win()
@@ -104,7 +98,7 @@ public class GameManager : MonoBehaviour
 	
 	private void EndMatch()
 	{
-		_grid.DisableAllPieces();
+		_board.DisableAllPieces();
 		_hud.EnableRestartButton();
 	}
 	
@@ -143,9 +137,22 @@ public class GameManager : MonoBehaviour
 	{
 		turnCount = 0;
 		_hud.Restart();
-		_grid.RemoveAllPieces();
+		_board.RemoveAllPieces();
 
 		if(!isPlayerTurn)
 			StartCoroutine(AIMove(.4f));
+	}
+
+	public void BackToMenu()
+	{
+		turnCount = 0;
+		_hud.Restart();
+		_board.RemoveAllPieces();
+
+		playerScore = 0;
+		tieScore = 0;
+		computerScore = 0;
+
+		SceneManager.LoadScene("Menu");
 	}
 }
