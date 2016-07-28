@@ -10,12 +10,26 @@ public class Board : MonoBehaviour
 
 	public static Board instance = null;    
 
-	public Sprite playerPiece;
-	public Sprite computerPiece;
+	public int[,] winConfigs = new int[,]
+	{
+		{ 0, 1, 2 },
+		{ 3, 4, 5 },
+		{ 6, 7, 8 },
+		{ 0, 3, 6 },
+		{ 1, 4, 7 },
+		{ 2, 5, 8 },
+		{ 0, 4, 8 },
+		{ 2, 4, 6 }
+	};
 
+	[HideInInspector]
 	public Piece[] pieces;
 
+	[HideInInspector]
 	public int[] cells = new int[9];
+
+	public Sprite playerPiece;
+	public Sprite computerPiece;
 
 	void Awake()
 	{
@@ -46,43 +60,15 @@ public class Board : MonoBehaviour
 
 	private bool CheckWin(int piece)
 	{
-		var rowWin = CheckRowWin(piece);
-		var columnWin = CheckColumnWin(piece);
-		var diagonalWin = CheckDiagonalWin(piece);
-
-		return rowWin || columnWin || diagonalWin;
-	}
-
-	private bool CheckRowWin(int piece)
-	{
-		for (int i = 0; i < 3; ++i) 
+		for (int i = 0; i < winConfigs.GetLength(0); i++)
 		{
-			if(cells [i * 3] == cells [i * 3 + 1] && cells [i * 3 + 1] == cells [i * 3 + 2] && cells [i * 3 + 2] == piece)
+			if(cells[winConfigs[i, 0]] == piece && cells[winConfigs[i, 1]] == piece && cells[winConfigs[i, 2]] == piece)
 				return true;
 		}
 
 		return false;
 	}
-
-	private bool CheckColumnWin(int piece)
-	{
-		for (int i = 0; i < 3; ++i) 
-		{
-			if(cells [i] == cells [i + 3] && cells [i + 3] == cells [i + 6] && cells [i + 6] == piece)
-				return true;
-		}
-
-		return false;
-	}
-
-	private bool CheckDiagonalWin(int piece)
-	{
-		var firstDiagonal = cells[0] == cells[4] && cells[4] == cells[8] && cells[8] == piece;
-		var secondDiagonal = cells[2] == cells[4] && cells[4] == cells[6] && cells[6] == piece;
-
-		return firstDiagonal || secondDiagonal;
-	}
-
+		
 	public void DisableAllPieces()
 	{
 		foreach(var piece in pieces)
