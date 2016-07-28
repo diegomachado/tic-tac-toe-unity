@@ -21,7 +21,7 @@ public class Piece : MonoBehaviour
 	public void PlayerSetPiece()
 	{
 		SetPiece();
-		GameManager.instance.MakeMove(this);
+		GameManager.instance.PlayerMove(this);
 	}
 
 	public void SetPiece() 

@@ -10,11 +10,11 @@ public class AI : MonoBehaviour
 		_grid = Grid.instance;
 	}
 
-	public void Play()
+	public Piece GetMovePiece()
 	{
 		var movePiece = RandomEmptySpaceStrategy();
 		movePiece.SetPiece();
-		_grid.SetPiece(movePiece.gridPosition);
+		return movePiece;
 	}
 
 	public Piece RandomEmptySpaceStrategy()
@@ -24,15 +24,4 @@ public class AI : MonoBehaviour
 
 		return emptyPieces[randomId];
 	}
-
-	void Score()
-	{
-		
-	}
-
-	void MinMax()
-	{
-	}
-
-
 }

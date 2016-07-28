@@ -41,43 +41,51 @@ public class GameManager : MonoBehaviour
 			SceneManager.LoadScene("Gameplay");
 	}
 
-	// TODO: Extract to Player Class
-	public void MakeMove(Piece piece)
+	public void PlayerMove(Piece piece)
+	{
+		Move(piece);
+	}
+
+	public void Move(Piece piece)
 	{
 		_grid.SetPiece(piece.gridPosition);
 
-		if(HasMinTurnsToCheckForWinner() && _grid.CheckForWinner())
+		if(CheckForWinner())
 		{
 			Win();
+			return;
+		}
+
+		PassTurn();
+
+		if(TurnsEnded())
+		{
+			Tie();
+			return;
 		}
 		else
 		{
-			PassTurn();
+			ToggleTurnPlayer();
 
-			if(GameEnded()) 
-			{
-				Tie();
-			}
-			else 
-			{
-				ToggleTurnPlayer();
+			if(!isPlayerTurn)
 				AIMove();
-			}
 		}
+
 	}
 
-	public bool HasMinTurnsToCheckForWinner()
+	private bool CheckForWinner()
 	{
-		return turnCount >= MIN_TURNS_TO_WIN;
+		var hasMinTurnsToCheckForWinner = (turnCount >= MIN_TURNS_TO_WIN);
+		return hasMinTurnsToCheckForWinner && _grid.CheckForWinner();
 	}
 
-	public void Win()
+	private void Win()
 	{
 		if(isPlayerTurn) 
 			PlayerWin();
-		else 
-			ComputerWin();
-		
+		else
+			AIWin();
+
 		EndMatch();
 	}
 
@@ -87,32 +95,26 @@ public class GameManager : MonoBehaviour
 		_hud.PlayerWin();
 	}
 
-	private void ComputerWin()
+	private void AIWin()
 	{
 		computerScore++;
 		_hud.ComputerWin();
 	}
-
+	
 	private void EndMatch()
 	{
 		_grid.DisableAllPieces();
 		_hud.EnableRestartButton();
 	}
-
+	
 	private void PassTurn()
 	{
 		turnCount++;
 	}
 
-	private bool GameEnded() 
+	private bool TurnsEnded() 
 	{
 		return turnCount == MAX_TURNS;
-	}
-
-	private void ToggleTurnPlayer()
-	{
-		isPlayerTurn = !isPlayerTurn;
-		_hud.UpdateTurnText();
 	}
 
 	private void Tie()
@@ -123,27 +125,16 @@ public class GameManager : MonoBehaviour
 		EndMatch();
 	}
 
+	private void ToggleTurnPlayer()
+	{
+		isPlayerTurn = !isPlayerTurn;
+		_hud.UpdateTurnText();
+	}
+		
 	private void AIMove()
 	{
-		_ai.Play();
-
-		if(HasMinTurnsToCheckForWinner() && _grid.CheckForWinner())
-		{
-			Win();
-		}
-		else
-		{
-			PassTurn();
-
-			if(GameEnded()) 
-			{
-				Tie();
-			}
-			else 
-			{
-				ToggleTurnPlayer();
-			}
-		}
+		Piece aiPiece = _ai.GetMovePiece();
+		Move(aiPiece);
 	}
 
 	public void RestartGame()
