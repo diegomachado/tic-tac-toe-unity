@@ -2,19 +2,20 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Grid : MonoBehaviour 
+public class Board : MonoBehaviour 
 {
-	private const int EMPTY = 0;
-	private const int PLAYER_PIECE = 1;
-	private const int COMPUTER_PIECE = 2;
+	public const int EMPTY = 0;
+	public const int PLAYER_PIECE = 1;
+	public const int COMPUTER_PIECE = 2;
 
-	public static Grid instance = null;    
+	public static Board instance = null;    
 
 	public Sprite playerPiece;
 	public Sprite computerPiece;
+
 	public Piece[] pieces;
 
-	public int[] spaces = new int[9];
+	public int[] cells = new int[9];
 
 	void Awake()
 	{
@@ -26,12 +27,12 @@ public class Grid : MonoBehaviour
 
 	void Start()
 	{
-		pieces = transform.Find("Spaces").GetComponentsInChildren<Piece>();
+		pieces = transform.Find("Cells").GetComponentsInChildren<Piece>();
 	}
 		
 	public void SetPiece(int piecePosition) 
 	{
-		spaces[piecePosition] = GameManager.instance.isPlayerTurn ? PLAYER_PIECE : COMPUTER_PIECE;
+		cells[piecePosition] = GameManager.instance.isPlayerTurn ? PLAYER_PIECE : COMPUTER_PIECE;
 	}
 		
 	public bool CheckForWinner()
@@ -39,9 +40,9 @@ public class Grid : MonoBehaviour
 		return GameManager.instance.isPlayerTurn ? CheckPlayerWin() : CheckComputerWin();
 	}
 
-	private bool CheckPlayerWin() { return CheckWin(PLAYER_PIECE); }
+	public bool CheckPlayerWin() { return CheckWin(PLAYER_PIECE); }
 
-	private bool CheckComputerWin()	{ return CheckWin(COMPUTER_PIECE); }
+	public bool CheckComputerWin()	{ return CheckWin(COMPUTER_PIECE); }
 
 	private bool CheckWin(int piece)
 	{
@@ -56,7 +57,7 @@ public class Grid : MonoBehaviour
 	{
 		for (int i = 0; i < 3; ++i) 
 		{
-			if(spaces [i * 3] == spaces [i * 3 + 1] && spaces [i * 3 + 1] == spaces [i * 3 + 2] && spaces [i * 3 + 2] == piece)
+			if(cells [i * 3] == cells [i * 3 + 1] && cells [i * 3 + 1] == cells [i * 3 + 2] && cells [i * 3 + 2] == piece)
 				return true;
 		}
 
@@ -67,7 +68,7 @@ public class Grid : MonoBehaviour
 	{
 		for (int i = 0; i < 3; ++i) 
 		{
-			if(spaces [i] == spaces [i + 3] && spaces [i + 3] == spaces [i + 6] && spaces [i + 6] == piece)
+			if(cells [i] == cells [i + 3] && cells [i + 3] == cells [i + 6] && cells [i + 6] == piece)
 				return true;
 		}
 
@@ -76,8 +77,8 @@ public class Grid : MonoBehaviour
 
 	private bool CheckDiagonalWin(int piece)
 	{
-		var firstDiagonal = spaces[0] == spaces[4] && spaces[4] == spaces[8] && spaces[8] == piece;
-		var secondDiagonal = spaces[2] == spaces[4] && spaces[4] == spaces[6] && spaces[6] == piece;
+		var firstDiagonal = cells[0] == cells[4] && cells[4] == cells[8] && cells[8] == piece;
+		var secondDiagonal = cells[2] == cells[4] && cells[4] == cells[6] && cells[6] == piece;
 
 		return firstDiagonal || secondDiagonal;
 	}
@@ -90,7 +91,7 @@ public class Grid : MonoBehaviour
 		
 	public void RemoveAllPieces()
 	{
-		spaces = new int[9];
+		cells = new int[9];
 
 		foreach(var piece in pieces)
 		{
@@ -103,9 +104,9 @@ public class Grid : MonoBehaviour
 	{
 		var emptyPieces = new List<Piece>();
 
-		for (int i = 0; i < spaces.Length; ++i) 
+		for (int i = 0; i < cells.Length; ++i) 
 		{
-			if(spaces[i] == EMPTY)
+			if(cells[i] == EMPTY)
 				emptyPieces.Add(pieces[i]);
 		}
 

@@ -32,7 +32,7 @@ public class Piece : MonoBehaviour
 		
 	void SetImage()
 	{
-		var grid = Grid.instance;
+		var grid = Board.instance;
 		var gameManager = GameManager.instance;
 
 		_image.sprite = gameManager.isPlayerTurn ? grid.playerPiece : grid.computerPiece;

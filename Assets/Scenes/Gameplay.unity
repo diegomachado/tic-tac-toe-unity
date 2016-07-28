@@ -299,6 +299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 0}
+  _image: {fileID: 0}
 --- !u!114 &178006705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+  _button: {fileID: 0}
+  _buttonHelper: {fileID: 0}
   gridPosition: 5
 --- !u!1 &178838227
 GameObject:
@@ -321,7 +326,7 @@ GameObject:
   - 224: {fileID: 178838228}
   - 114: {fileID: 178838229}
   m_Layer: 5
-  m_Name: Spaces
+  m_Name: Cells
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -510,6 +515,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 0}
+  _image: {fileID: 0}
 --- !u!1 &351198079
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,6 +589,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 0}
+  _image: {fileID: 0}
 --- !u!114 &465266751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,6 +602,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+  _button: {fileID: 0}
+  _buttonHelper: {fileID: 0}
   gridPosition: 8
 --- !u!1 &486300060
 GameObject:
@@ -1162,6 +1174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 0}
+  _image: {fileID: 0}
 --- !u!114 &779230002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1173,6 +1187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+  _button: {fileID: 0}
+  _buttonHelper: {fileID: 0}
   gridPosition: 0
 --- !u!1 &808997071
 GameObject:
@@ -1242,7 +1259,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: 0
 --- !u!222 &808997074
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1275,7 +1292,7 @@ GameObject:
   - 114: {fileID: 816871507}
   - 114: {fileID: 816871509}
   m_Layer: 5
-  m_Name: Grid
+  m_Name: Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1341,7 +1358,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 816871505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ff22750bb75b43c294cb2cdd2981c6e, type: 3}
+  m_Script: {fileID: 11500000, guid: a09f1fb13b1664cd99d3d4f0bf463dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerPiece: {fileID: 21300000, guid: 9bbfa28dcaf0d40568d1a72229fbd55a, type: 3}
@@ -1363,6 +1380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 0}
+  _image: {fileID: 0}
 --- !u!114 &858116512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,6 +1393,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+  _button: {fileID: 0}
+  _buttonHelper: {fileID: 0}
   gridPosition: 2
 --- !u!1 &968188515
 GameObject:
@@ -1640,6 +1662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 0}
+  _image: {fileID: 0}
 --- !u!114 &1091771061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1651,6 +1675,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+  _button: {fileID: 0}
+  _buttonHelper: {fileID: 0}
   gridPosition: 6
 --- !u!1 &1193075715 stripped
 GameObject:
@@ -1667,6 +1694,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 0}
+  _image: {fileID: 0}
 --- !u!114 &1193075718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1678,6 +1707,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+  _button: {fileID: 0}
+  _buttonHelper: {fileID: 0}
   gridPosition: 7
 --- !u!1 &1252411721 stripped
 GameObject:
@@ -1694,6 +1726,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 0}
+  _image: {fileID: 0}
 --- !u!114 &1252411724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1705,6 +1739,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+  _button: {fileID: 0}
+  _buttonHelper: {fileID: 0}
   gridPosition: 4
 --- !u!1 &1270013196
 GameObject:
@@ -1863,7 +1900,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 13
+  m_Text: 0
 --- !u!222 &1326587670
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2239,6 +2276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 0}
+  _image: {fileID: 0}
 --- !u!114 &1485259792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2250,6 +2289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+  _button: {fileID: 0}
+  _buttonHelper: {fileID: 0}
   gridPosition: 1
 --- !u!1001 &1732845779
 Prefab:
@@ -2558,6 +2600,9 @@ MonoBehaviour:
   playerScore: 0
   tieScore: 0
   computerScore: 0
+  _hud: {fileID: 0}
+  _grid: {fileID: 0}
+  _ai: {fileID: 0}
 --- !u!4 &1747134279
 Transform:
   m_ObjectHideFlags: 0
@@ -2582,6 +2627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315e0889da0a54dd5a5e699c55c88c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _grid: {fileID: 0}
 --- !u!1 &1782218978 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 150418, guid: 9f76cd54fef6447e9b9ec4c3fdb69274, type: 2}
@@ -2597,6 +2643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66b5834b3db4ea4a3be6cf7a16c725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 0}
+  _image: {fileID: 0}
 --- !u!114 &1782218981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2608,6 +2656,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879207e9ec14f4e68b0ecb9ca556c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 0}
+  _button: {fileID: 0}
+  _buttonHelper: {fileID: 0}
   gridPosition: 3
 --- !u!1 &1984647923
 GameObject:
@@ -2710,11 +2761,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49cd25ff4ff2c4330ad4e0ae06394652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTurnText: Player's Turn
-  computerTurnText: Computer's Turn
-  playerWinText: Player Wins!
-  tieText: It's a Tie!
-  computerWinText: Computer Wins :(
+  playerTurnText: 506c617965722773205475726e
+  computerTurnText: 436f6d70757465722773205475726e
+  playerWinText: 506c617965722057696e7321
+  tieText: 4974277320612054696521
+  computerWinText: 436f6d70757465722057696e73203a28
+  text: {fileID: 0}
 --- !u!1001 &2050003132
 Prefab:
   m_ObjectHideFlags: 0

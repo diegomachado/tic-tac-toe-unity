@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 	public int computerScore = 0;
 
 	private HUD _hud;
-	private Grid _grid;
+	private Board _grid;
 	private AI _ai;
 
 	void Awake()
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		_hud = HUD.instance;
-		_grid = Grid.instance;
+		_grid = Board.instance;
 		_ai = GetComponent<AI>();
 	}
 
@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
 		
 	private void AIMove()
 	{
-		Piece aiPiece = _ai.GetMovePiece();
+		Piece aiPiece = _ai.MovePiece();
 		Move(aiPiece);
 	}
 
